@@ -1,5 +1,6 @@
 # UserDetails
 
+User details
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

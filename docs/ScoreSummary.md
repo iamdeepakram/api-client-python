@@ -1,5 +1,6 @@
 # ScoreSummary
 
+A summary of the score details
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

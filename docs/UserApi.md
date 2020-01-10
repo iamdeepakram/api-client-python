@@ -16,19 +16,20 @@ List liked scores
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.UserApi(flat_api.ApiClient(configuration))
 user = 'user_example' # str | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user. 
 ids = True # bool | Return only the identifiers of the scores (optional)
@@ -61,6 +62,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of liked scores |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user**
@@ -72,19 +79,20 @@ Get a public profile of a Flat User.
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.UserApi(flat_api.ApiClient(configuration))
 user = 'user_example' # str | This route parameter is the unique identifier of the user. You can specify an email instead of an unique identifier. If you are executing this request authenticated, you can use `me` as a value instead of the current User unique identifier to work on the current authenticated user. 
 
@@ -115,6 +123,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The user public details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_scores**
@@ -126,19 +140,20 @@ Get the list of public scores owned by a User.  **DEPRECATED**: Please note that
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.UserApi(flat_api.ApiClient(configuration))
 user = 'user_example' # str | Unique identifier of a Flat user. If you authenticated, you can use `me` to refer to the current user. 
 parent = 'parent_example' # str | Filter the score forked from the score id `parent` (optional)
@@ -170,6 +185,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The user scores |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

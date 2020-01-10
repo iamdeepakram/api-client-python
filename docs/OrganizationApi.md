@@ -17,7 +17,7 @@ Method | HTTP request | Description
 
 
 # **create_lti_credentials**
-> LtiCredentials create_lti_credentials(lti_credentials_creation)
+> LtiCredentials create_lti_credentials(body)
 
 Create a new couple of LTI 1.x credentials
 
@@ -25,25 +25,26 @@ Flat for Education is a Certified LTI Provider. You can use these API methods to
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
-lti_credentials_creation = flat_api.LtiCredentialsCreation() # LtiCredentialsCreation | 
+body = flat_api.LtiCredentialsCreation() # LtiCredentialsCreation | 
 
 try:
     # Create a new couple of LTI 1.x credentials
-    api_response = api_instance.create_lti_credentials(lti_credentials_creation)
+    api_response = api_instance.create_lti_credentials(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationApi->create_lti_credentials: %s\n" % e)
@@ -53,7 +54,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **lti_credentials_creation** | [**LtiCredentialsCreation**](LtiCredentialsCreation.md)|  | 
+ **body** | [**LtiCredentialsCreation**](LtiCredentialsCreation.md)|  | 
 
 ### Return type
 
@@ -68,10 +69,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The LTI Credentials |  -  |
+**403** | Not admin of an organization |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_organization_invitation**
-> OrganizationInvitation create_organization_invitation(organization_invitation_creation=organization_invitation_creation)
+> OrganizationInvitation create_organization_invitation(body=body)
 
 Create a new invitation to join the organization
 
@@ -79,25 +87,26 @@ This method creates and sends invitation for teachers and admins.  Invitations c
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
-organization_invitation_creation = flat_api.OrganizationInvitationCreation() # OrganizationInvitationCreation |  (optional)
+body = flat_api.OrganizationInvitationCreation() # OrganizationInvitationCreation |  (optional)
 
 try:
     # Create a new invitation to join the organization
-    api_response = api_instance.create_organization_invitation(organization_invitation_creation=organization_invitation_creation)
+    api_response = api_instance.create_organization_invitation(body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationApi->create_organization_invitation: %s\n" % e)
@@ -107,7 +116,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **organization_invitation_creation** | [**OrganizationInvitationCreation**](OrganizationInvitationCreation.md)|  | [optional] 
+ **body** | [**OrganizationInvitationCreation**](OrganizationInvitationCreation.md)|  | [optional] 
 
 ### Return type
 
@@ -122,34 +131,41 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | New invitation created |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_organization_user**
-> UserDetailsAdmin create_organization_user(user_creation=user_creation)
+> UserDetailsAdmin create_organization_user(body=body)
 
 Create a new user account
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
-user_creation = flat_api.UserCreation() # UserCreation |  (optional)
+body = flat_api.UserCreation() # UserCreation |  (optional)
 
 try:
     # Create a new user account
-    api_response = api_instance.create_organization_user(user_creation=user_creation)
+    api_response = api_instance.create_organization_user(body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationApi->create_organization_user: %s\n" % e)
@@ -159,7 +175,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user_creation** | [**UserCreation**](UserCreation.md)|  | [optional] 
+ **body** | [**UserCreation**](UserCreation.md)|  | [optional] 
 
 ### Return type
 
@@ -174,6 +190,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | New user created |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_lti_credentials**
@@ -183,19 +205,20 @@ List LTI 1.x credentials
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 
 try:
@@ -222,6 +245,13 @@ This endpoint does not need any parameter.
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of LTI Credentials |  -  |
+**403** | Not admin of an organization |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_organization_invitations**
@@ -231,19 +261,20 @@ List the organization invitations
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 role = 'role_example' # str | Filter users by role (optional)
 limit = 50 # int | This is the maximum number of objects that may be returned (optional) (default to 50)
@@ -280,6 +311,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of invitations |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_organization_users**
@@ -289,19 +326,20 @@ List the organization users
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 role = 'role_example' # str | Filter users by role (optional)
 limit = 50 # int | This is the maximum number of objects that may be returned (optional) (default to 50)
@@ -338,6 +376,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of users |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_organization_invitation**
@@ -347,19 +391,20 @@ Remove an organization invitation
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 invitation = 'invitation_example' # str | Unique identifier of the invitation
 
@@ -389,6 +434,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The invitation has been removed |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **remove_organization_user**
@@ -400,19 +451,20 @@ This operation removes an account from Flat and its data, including: * The music
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 user = 'user_example' # str | Unique identifier of the Flat account 
 convert_to_individual = True # bool | If `true`, the account will be only removed from the organization and converted into an individual account on our public website, https://flat.io. This operation will remove the education-related data from the account. Before realizing this operation, you need to be sure that the user is at least 13 years old and that this one has read and agreed to the Individual Terms of Services of Flat available on https://flat.io/legal.  (optional)
@@ -444,6 +496,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | User deleted |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **revoke_lti_credentials**
@@ -453,19 +511,20 @@ Revoke LTI 1.x credentials
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 credentials = 'credentials_example' # str | Credentials unique identifier 
 
@@ -495,35 +554,44 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Credentials revoked |  -  |
+**403** | Not admin of an organization |  -  |
+**404** | Credentials not found |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_organization_user**
-> UserDetailsAdmin update_organization_user(user, user_admin_update)
+> UserDetailsAdmin update_organization_user(user, body)
 
 Update account information
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.OrganizationApi(flat_api.ApiClient(configuration))
 user = 'user_example' # str | Unique identifier of the Flat account 
-user_admin_update = flat_api.UserAdminUpdate() # UserAdminUpdate | 
+body = flat_api.UserAdminUpdate() # UserAdminUpdate | 
 
 try:
     # Update account information
-    api_response = api_instance.update_organization_user(user, user_admin_update)
+    api_response = api_instance.update_organization_user(user, body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationApi->update_organization_user: %s\n" % e)
@@ -534,7 +602,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **user** | **str**| Unique identifier of the Flat account  | 
- **user_admin_update** | [**UserAdminUpdate**](UserAdminUpdate.md)|  | 
+ **body** | [**UserAdminUpdate**](UserAdminUpdate.md)|  | 
 
 ### Return type
 
@@ -548,6 +616,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | User updated |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

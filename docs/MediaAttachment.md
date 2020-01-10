@@ -1,5 +1,6 @@
 # MediaAttachment
 
+Media attachment. The API will automatically resolve the details, oEmbed, and media available if possible and return them in this object 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -19,6 +20,9 @@ Name | Type | Description | Notes
 **thumbnail_height** | **str** | If the &#x60;thumbnailUrl&#x60; is available, the width of the thumbnail  | [optional] 
 **author_name** | **str** | The resolved author name of the attachment | [optional] 
 **author_url** | **str** | The resolved author url of the attachment | [optional] 
+**icon_url** | **str** | The URL of the icon | [optional] 
+**mime_type** | **str** | The mine type of the file | [optional] 
+**google_drive_file_id** | **str** | The ID of the Google Drive File | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

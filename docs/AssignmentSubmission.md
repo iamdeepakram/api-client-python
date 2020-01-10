@@ -1,9 +1,11 @@
 # AssignmentSubmission
 
+Assignment Submission
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | Unique identifier of the submission | [optional] 
+**state** | **str** | State of the submission | [optional] 
 **classroom** | **str** | Unique identifier of the classroom where the assignment was posted  | [optional] 
 **assignment** | **str** | Unique identifier of the assignment | [optional] 
 **creator** | **str** | The User identifier of the student who created the submission | [optional] 

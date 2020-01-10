@@ -16,19 +16,20 @@ Get group information
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.GroupApi(flat_api.ApiClient(configuration))
 group = 'group_example' # str | Unique identifier of a Flat group 
 
@@ -59,6 +60,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The group details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_group_scores**
@@ -70,19 +77,20 @@ Get the list of scores shared with a group.
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.GroupApi(flat_api.ApiClient(configuration))
 group = 'group_example' # str | Unique identifier of a Flat group 
 parent = 'parent_example' # str | Filter the score forked from the score id `parent` (optional)
@@ -115,6 +123,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The group&#39;s scores |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_group_users**
@@ -124,19 +138,20 @@ List group's users
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.GroupApi(flat_api.ApiClient(configuration))
 group = 'group_example' # str | Unique identifier of a Flat group 
 
@@ -166,6 +181,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: Not defined
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of users member of the group |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

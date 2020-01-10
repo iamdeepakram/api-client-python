@@ -1,5 +1,6 @@
 # UserPublicSummary
 
+Public User details summary
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

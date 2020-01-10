@@ -34,19 +34,20 @@ Mark the class as `active`. This is mainly used for classes synchronized from Cl
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 
@@ -77,6 +78,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The class details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_class_user**
@@ -88,19 +95,20 @@ This method can be used by a teacher of the class to enroll another Flat user in
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 user = 'user_example' # str | Unique identifier of the user
@@ -132,6 +140,12 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The user has been added to the class |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **archive_class**
@@ -143,19 +157,20 @@ Mark the class as `archived`. When this course is synchronized with another app,
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 
@@ -186,10 +201,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The class details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **copy_assignment**
-> Assignment copy_assignment(_class, assignment, assignment_copy)
+> Assignment copy_assignment(_class, assignment, body)
 
 Copy an assignment
 
@@ -197,27 +218,28 @@ Copy an assignment to a specified class.  If the original assignment has a due d
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 assignment = 'assignment_example' # str | Unique identifier of the assignment
-assignment_copy = flat_api.AssignmentCopy() # AssignmentCopy | 
+body = flat_api.AssignmentCopy() # AssignmentCopy | 
 
 try:
     # Copy an assignment
-    api_response = api_instance.copy_assignment(_class, assignment, assignment_copy)
+    api_response = api_instance.copy_assignment(_class, assignment, body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->copy_assignment: %s\n" % e)
@@ -229,7 +251,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_class** | **str**| Unique identifier of the class | 
  **assignment** | **str**| Unique identifier of the assignment | 
- **assignment_copy** | [**AssignmentCopy**](AssignmentCopy.md)|  | 
+ **body** | [**AssignmentCopy**](AssignmentCopy.md)|  | 
 
 ### Return type
 
@@ -244,10 +266,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The new created assingment |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_assignment**
-> Assignment create_assignment(_class, assignment_creation=assignment_creation)
+> Assignment create_assignment(_class, body=body)
 
 Assignment creation
 
@@ -255,26 +283,27 @@ Use this method as a teacher to create and post a new assignment to a class.  If
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
-assignment_creation = flat_api.AssignmentCreation() # AssignmentCreation |  (optional)
+body = flat_api.AssignmentCreation() # AssignmentCreation |  (optional)
 
 try:
     # Assignment creation
-    api_response = api_instance.create_assignment(_class, assignment_creation=assignment_creation)
+    api_response = api_instance.create_assignment(_class, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->create_assignment: %s\n" % e)
@@ -285,7 +314,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_class** | **str**| Unique identifier of the class | 
- **assignment_creation** | [**AssignmentCreation**](AssignmentCreation.md)|  | [optional] 
+ **body** | [**AssignmentCreation**](AssignmentCreation.md)|  | [optional] 
 
 ### Return type
 
@@ -300,10 +329,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The assignment has been created |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_class**
-> ClassDetails create_class(class_creation)
+> ClassDetails create_class(body)
 
 Create a new class
 
@@ -311,25 +346,26 @@ Classrooms on Flat allow you to create activities with assignments and post cont
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
-class_creation = flat_api.ClassCreation() # ClassCreation | 
+body = flat_api.ClassCreation() # ClassCreation | 
 
 try:
     # Create a new class
-    api_response = api_instance.create_class(class_creation)
+    api_response = api_instance.create_class(body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->create_class: %s\n" % e)
@@ -339,7 +375,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **class_creation** | [**ClassCreation**](ClassCreation.md)|  | 
+ **body** | [**ClassCreation**](ClassCreation.md)|  | 
 
 ### Return type
 
@@ -354,10 +390,17 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The new class details |  -  |
+**402** | Account overquota |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_submission**
-> AssignmentSubmission create_submission(_class, assignment, assignment_submission_update)
+> AssignmentSubmission create_submission(_class, assignment, body)
 
 Create or edit a submission
 
@@ -365,27 +408,28 @@ Use this method as a student to create, update and submit a submission related t
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 assignment = 'assignment_example' # str | Unique identifier of the assignment
-assignment_submission_update = flat_api.AssignmentSubmissionUpdate() # AssignmentSubmissionUpdate | 
+body = flat_api.AssignmentSubmissionUpdate() # AssignmentSubmissionUpdate | 
 
 try:
     # Create or edit a submission
-    api_response = api_instance.create_submission(_class, assignment, assignment_submission_update)
+    api_response = api_instance.create_submission(_class, assignment, body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->create_submission: %s\n" % e)
@@ -397,7 +441,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_class** | **str**| Unique identifier of the class | 
  **assignment** | **str**| Unique identifier of the assignment | 
- **assignment_submission_update** | [**AssignmentSubmissionUpdate**](AssignmentSubmissionUpdate.md)|  | 
+ **body** | [**AssignmentSubmissionUpdate**](AssignmentSubmissionUpdate.md)|  | 
 
 ### Return type
 
@@ -412,6 +456,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The submission |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_class_user**
@@ -423,19 +473,20 @@ This method can be used by a teacher to remove a user from the class, or by a st
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 user = 'user_example' # str | Unique identifier of the user
@@ -467,10 +518,16 @@ void (empty response body)
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The user has been removed from the class |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **edit_submission**
-> AssignmentSubmission edit_submission(_class, assignment, submission, assignment_submission_update)
+> AssignmentSubmission edit_submission(_class, assignment, submission, body)
 
 Edit a submission
 
@@ -478,28 +535,29 @@ Use this method as a teacher to update the different submission and give feedbac
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 assignment = 'assignment_example' # str | Unique identifier of the assignment
 submission = 'submission_example' # str | Unique identifier of the submission
-assignment_submission_update = flat_api.AssignmentSubmissionUpdate() # AssignmentSubmissionUpdate | 
+body = flat_api.AssignmentSubmissionUpdate() # AssignmentSubmissionUpdate | 
 
 try:
     # Edit a submission
-    api_response = api_instance.edit_submission(_class, assignment, submission, assignment_submission_update)
+    api_response = api_instance.edit_submission(_class, assignment, submission, body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->edit_submission: %s\n" % e)
@@ -512,7 +570,7 @@ Name | Type | Description  | Notes
  **_class** | **str**| Unique identifier of the class | 
  **assignment** | **str**| Unique identifier of the assignment | 
  **submission** | **str**| Unique identifier of the submission | 
- **assignment_submission_update** | [**AssignmentSubmissionUpdate**](AssignmentSubmissionUpdate.md)|  | 
+ **body** | [**AssignmentSubmissionUpdate**](AssignmentSubmissionUpdate.md)|  | 
 
 ### Return type
 
@@ -527,6 +585,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: application/json
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The submission |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **enroll_class**
@@ -538,19 +602,20 @@ Use this method to join a class using an enrollment code given one of the teache
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 enrollment_code = 'enrollment_code_example' # str | The enrollment code, available to the teacher in `ClassDetails` 
 
@@ -581,6 +646,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The new class details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_class**
@@ -590,19 +661,20 @@ Get the details of a single class
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 
@@ -633,6 +705,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The new class details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_score_submissions**
@@ -644,19 +722,20 @@ This API call will list the different assignments submissions where the score is
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 score = 'score_example' # str | Unique identifier of the score document. This can be a Flat Score unique identifier (i.e. `ScoreDetails.id`) or, if the score is also a Google Drive file, the Drive file unique identifier prefixed with `drive-` (e.g. `drive-0B000000000`). 
 
@@ -687,6 +766,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of submissions |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_submission**
@@ -696,19 +781,20 @@ Get a student submission
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 assignment = 'assignment_example' # str | Unique identifier of the assignment
@@ -743,6 +829,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A submission |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_submissions**
@@ -752,19 +844,20 @@ List the students' submissions
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 assignment = 'assignment_example' # str | Unique identifier of the assignment
@@ -797,6 +890,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The submissions |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_assignments**
@@ -806,19 +905,20 @@ Assignments listing
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 
@@ -849,6 +949,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | List of assignments for the class |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_class_student_submissions**
@@ -860,19 +966,20 @@ Use this method as a teacher to list all the assignment submissions sent by a st
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 user = 'user_example' # str | Unique identifier of the user
@@ -905,6 +1012,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of submissions |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_classes**
@@ -914,19 +1027,20 @@ List the classes available for the current user
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 state = 'active' # str | Filter the classes by state (optional) (default to 'active')
 
@@ -957,6 +1071,12 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The list of classes |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **unarchive_class**
@@ -968,19 +1088,20 @@ Mark the class as `active`. When this course is synchronized with another app, l
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
 
@@ -1011,10 +1132,16 @@ Name | Type | Description  | Notes
  - **Content-Type**: Not defined
  - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The class details |  -  |
+**0** | Error |  -  |
+
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **update_class**
-> ClassDetails update_class(_class, class_update=class_update)
+> ClassDetails update_class(_class, body=body)
 
 Update the class
 
@@ -1022,26 +1149,27 @@ Update the meta information of the class
 
 ### Example
 
-* OAuth Authentication (OAuth2): 
+* OAuth Authentication (OAuth2):
 ```python
 from __future__ import print_function
 import time
 import flat_api
 from flat_api.rest import ApiException
 from pprint import pprint
-
-# Configure OAuth2 access token for authorization: OAuth2
 configuration = flat_api.Configuration()
+# Configure OAuth2 access token for authorization: OAuth2
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
-# create an instance of the API class
+# Defining host is optional and default to https://api.flat.io/v2
+configuration.host = "https://api.flat.io/v2"
+# Create an instance of the API class
 api_instance = flat_api.ClassApi(flat_api.ApiClient(configuration))
 _class = '_class_example' # str | Unique identifier of the class
-class_update = flat_api.ClassUpdate() # ClassUpdate | Details of the Class (optional)
+body = flat_api.ClassUpdate() # ClassUpdate | Details of the Class (optional)
 
 try:
     # Update the class
-    api_response = api_instance.update_class(_class, class_update=class_update)
+    api_response = api_instance.update_class(_class, body=body)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling ClassApi->update_class: %s\n" % e)
@@ -1052,7 +1180,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **_class** | **str**| Unique identifier of the class | 
- **class_update** | [**ClassUpdate**](ClassUpdate.md)| Details of the Class | [optional] 
+ **body** | [**ClassUpdate**](ClassUpdate.md)| Details of the Class | [optional] 
 
 ### Return type
 
@@ -1066,6 +1194,12 @@ Name | Type | Description  | Notes
 
  - **Content-Type**: application/json
  - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The new class details |  -  |
+**0** | Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

@@ -1,5 +1,6 @@
 # ClassDetails
 
+A classroom
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -18,6 +19,7 @@ Name | Type | Description | Notes
 **teachers_group** | [**GroupDetails**](GroupDetails.md) |  | [optional] 
 **google_classroom** | [**ClassDetailsGoogleClassroom**](ClassDetailsGoogleClassroom.md) |  | [optional] 
 **google_drive** | [**ClassDetailsGoogleDrive**](ClassDetailsGoogleDrive.md) |  | [optional] 
+**microsoft_graph** | [**ClassDetailsMicrosoftGraph**](ClassDetailsMicrosoftGraph.md) |  | [optional] 
 **lti** | [**ClassDetailsLti**](ClassDetailsLti.md) |  | [optional] 
 **canvas** | [**ClassDetailsCanvas**](ClassDetailsCanvas.md) |  | [optional] 
 **clever** | [**ClassDetailsClever**](ClassDetailsClever.md) |  | [optional] 

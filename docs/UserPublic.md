@@ -1,5 +1,6 @@
 # UserPublic
 
+Public User details
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **following_count** | **int** | Number of people the user follow | [optional] 
 **owned_public_scores_count** | **int** | Number of public scores the user have | [optional] 
 **profile_theme** | **str** | Theme (background) for the profile | [optional] 
-**instruments** | [**UserInstruments**](UserInstruments.md) |  | [optional] 
+**instruments** | **list[str]** | An array of the instrument identifiers that the user plays. This is mainly used to display a list of the instruments in the Flat&#39;s UI or instruments icons. The format of the strings is &#x60;{instrument-group}.{instrument-id}&#x60;.  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
